@@ -1,7 +1,10 @@
 (ns comp-bio.core
-  (:gen-class))
+  (:gen-class )
+
+  )
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "Just run the test suite"
   [& args]
-  (println "Hello, World!"))
+  (println "hello")
+  )

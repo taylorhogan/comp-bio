@@ -1,8 +1,9 @@
-(ns comp-bio.test
-  (:require [clojure.math.combinatorics]
+(ns comp-bio.core-test
+  (:require [clojure.test :refer :all ]
+            [comp-bio.core :refer :all ]
             [comp-bio.translation :refer :all ]
-            [comp-bio.primitives :refer :all ]
-            ))
+            [comp-bio.primitives :refer :all ]))
+
 
 
 ; a helper function for basic testing
@@ -65,11 +66,18 @@
 
 
 
-(defn test-suite
+(defn test-suite []
   (time (test-clump))
   (time (test-fuzzy-match))
   (time (test-min-skew))
   (time (test-best-fuzzy))
   (time (translation-test))
-  (time (peptide-test))
+  (time (peptide-test)
+    )
   )
+
+
+(deftest a-test
+  (testing "All comp-bio tests"
+    (do (test-suite)
+      (is (= 1 1)))))
