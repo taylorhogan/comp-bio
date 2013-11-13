@@ -1,20 +1,13 @@
 # comp-bio
 
-FIXME: description
+An experiment in learning clojure
 
 ## Installation
 
-Download from http://example.com/FIXME.
+Just Download.
 
 ## Usage
-
-FIXME: explanation
-
-    $ java -jar comp-bio-0.1.0-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
+.
 
 ## Examples
 
@@ -30,7 +23,7 @@ FIXME: listing of options this app accepts.
 
 ## License
 
-Copyright © 2013 FIXME
+Copyright © 2013
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.

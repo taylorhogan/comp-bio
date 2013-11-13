@@ -1,7 +1,7 @@
 (ns comp-bio.test
   (:require [clojure.math.combinatorics]
-            [comp-bio.translation :refer :all]
-            [comp-bio.primitives :refer :all]
+            [comp-bio.translation :refer :all ]
+            [comp-bio.primitives :refer :all ]
             ))
 
 
@@ -56,19 +56,20 @@
 
 
 (defn peptide-test []
-(let [dna (to-genome "ATGGCCATGGCCCCCAGAACTGAGATCAATAGTACCCGTATTAACGGGTGA")
-      aa (to-genome "MA")]
-  (test-it "peptide test" (= (count (peptides-of dna aa)) 3))
+  (let [dna (to-genome "ATGGCCATGGCCCCCAGAACTGAGATCAATAGTACCCGTATTAACGGGTGA")
+        aa (to-genome "MA")]
+    (test-it "peptide test" (= (count (peptides-of dna aa)) 3))
+    )
   )
+
+
+
+
+(defn test-suite
+  (time (test-clump))
+  (time (test-fuzzy-match))
+  (time (test-min-skew))
+  (time (test-best-fuzzy))
+  (time (translation-test))
+  (time (peptide-test))
   )
-
-
-
-
-; test suite
-(time (test-clump))
-(time (test-fuzzy-match))
-(time (test-min-skew))
-(time (test-best-fuzzy))
-(time (translation-test))
-(time (peptide-test))

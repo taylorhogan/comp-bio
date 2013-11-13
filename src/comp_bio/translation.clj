@@ -2,7 +2,7 @@
 
 (ns comp-bio.translation
   (:require [clojure.math.combinatorics]
-            [comp-bio.primitives :refer :all]))
+            [comp-bio.primitives :refer :all ]))
 
 
 
@@ -166,10 +166,10 @@
 
 (defn spectrum [codons]
 
-)
+  )
 
 (clojure.math.combinatorics/combinations [1 2 3] 2)
-;(println (weight (seq "TGT")))
+(println (weight (seq "TGT")))
 
 
 
