@@ -28,6 +28,7 @@
         pattern "AGCGGCAA"
         d 5]
     (test-it "fuzzy match" (= (count (sort (approx-pattern-match pattern genome d))) 4979))
+
     )
   )
 
@@ -62,7 +63,11 @@
     (test-it "peptide test" (= (count (peptides-of dna aa)) 3))
     )
   )
-
+(defn codon-test []
+  (let [input (to-genome "LEQN")]
+    (test-it "codon test" (= (spectrum input) '(0 113 114 128 129 227 242 242 257 355 356 370 371 484)))
+    )
+  )
 
 
 
@@ -72,12 +77,13 @@
   (time (test-min-skew))
   (time (test-best-fuzzy))
   (time (translation-test))
-  (time (peptide-test)
-    )
+  (time (peptide-test))
+  (time (codon-test))
   )
 
 
 (deftest a-test
   (testing "All comp-bio tests"
     (do (test-suite)
-      (is (= 1 1)))))
+      (is (= 1 1))))
+  )
