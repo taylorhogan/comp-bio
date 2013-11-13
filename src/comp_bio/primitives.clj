@@ -3,7 +3,7 @@
 (ns
   ^{:author "Taylor Hogan",
     :doc "primitive genome transformations"}
-  primitives
+  comp-bio.primitives
   )
 
 ; Turn a String into a List of chars

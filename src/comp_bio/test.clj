@@ -1,4 +1,9 @@
-(ns primitives)
+(ns comp-bio.test
+  (:require [clojure.math.combinatorics]
+            [comp-bio.translation :refer :all]
+            [comp-bio.primitives :refer :all]
+            ))
+
 
 ; a helper function for basic testing
 (defn test-it [test-name predicate]

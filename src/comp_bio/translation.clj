@@ -1,6 +1,9 @@
 ; My  "Apologies"To"The clojure elite. First Attempts...
 
-(ns primitives)
+(ns comp-bio.translation
+  (:require [clojure.math.combinatorics]
+            [comp-bio.primitives :refer :all]))
+
 
 
 ; change Ts->Us (transcription)
