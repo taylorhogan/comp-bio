@@ -1,7 +1,7 @@
 (ns comp-bio.tables)
 
 ; define a map of codon->weight
-(def to-weight
+(defn to-weight []
   {
     \G 57
     \A 71
@@ -26,7 +26,7 @@
     }
   )
 ; define a map of 3 nucleotides (codon) -> protein
-(def to-protein
+(defn to-protein []
   {
     "UUU" "F"
     "CUU" "L"
@@ -92,4 +92,7 @@
     "CGG" "R"
     "AGG" "R"
     "GGG" "G"}
+  )
+
+(defn testme []
   )

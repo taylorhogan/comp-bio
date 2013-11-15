@@ -6,6 +6,13 @@
   comp-bio.primitives
   )
 
+(defn in?
+  "true if seq contains elm"
+  [seq elm]
+  (some #(= elm %) seq))
+
+
+
 ; Turn a String into a List of chars
 (defn to-genome [char-string] (seq char-string))
 
@@ -270,7 +277,7 @@
         k-mer-list (keys good-k-mers)]
     (loop [inset k-mer-list
            n d]
-       (if (= n 1) inset
+      (if (= n 1) inset
         (recur (neighbor-1-of-set inset) (dec n))
         )
       )
