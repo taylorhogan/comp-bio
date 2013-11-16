@@ -1,9 +1,9 @@
 ; My  "Apologies"To"The clojure elite. First Attempts...
 
-(ns comp-bio.bbound
+(ns comp-bio.cyclopeptide
   (:require [comp-bio.primitives :refer :all ]
             [comp-bio.tables :refer :all ]
-            [comp-bio.cyclopeptide :refer :all ]))
+            [comp-bio.spectrum :refer :all ]))
 
 
 ; does this list of weights produce (sum of all in list) a weight that exist in the original

@@ -1,6 +1,6 @@
 ; My  "Apologies"To"The clojure elite. First Attempts...
 
-(ns comp-bio.cyclopeptide
+(ns comp-bio.spectrum
   (:require [clojure.math.combinatorics]
             [comp-bio.primitives :refer :all ]
             [comp-bio.tables :refer :all ]))
