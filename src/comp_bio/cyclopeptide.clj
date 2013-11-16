@@ -38,6 +38,22 @@
     )
   )
 
+; given a codon find all contiguous (consider wrapping) codons of length k
+(defn k-clumps-linear [codon k]
+
+  (loop
+    [in-set codon
+     out-set ()
+     k k]
+
+    (if (empty? in-set) out-set
+      (if (< (count in-set) k) out-set
+        (recur (rest in-set) (concat out-set (list (take k in-set))) k))
+      )
+    )
+
+  )
+
 ; add in the empty set and the full set to a list of codons
 (defn add-book-ends [codons full-set]
   (concat (list ()) (list codons) full-set)
@@ -49,15 +65,15 @@
   (add-book-ends codons (loop [in-set codons
                                out-set ()
                                this-k (dec (count codons))]
-                          (do (println out-set this-k)
-                            (if (<= this-k 0) out-set
 
-                              (recur in-set (concat out-set (k-clumps in-set this-k)) (dec this-k))
-                              )
+                          (if (<= this-k 0) out-set
+
+                            (recur in-set (concat out-set (k-clumps-linear in-set this-k)) (dec this-k))
                             )
                           )
     )
   )
+
 
 ; find the spectrum of weights for a codon
 (defn spectrum [codons]

@@ -94,5 +94,3 @@
     "GGG" "G"}
   )
 
-(defn testme []
-  )
