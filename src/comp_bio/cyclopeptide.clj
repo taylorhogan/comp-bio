@@ -40,20 +40,22 @@
 
 ; add in the empty set and the full set to a list of codons
 (defn add-book-ends [codons full-set]
-  (concat list () (list codons) full-set)
+  (concat (list ()) (list codons) full-set)
   )
 
 ; find all groups of contiguous codons in a codon
 (defn all-k-clumps [codons]
-  (add-book-ends codons
-    (loop [in-set codons
-           out-set ()
-           this-k (dec (count codons))]
 
-      (if (<= this-k 0) out-set
-        (recur in-set (concat out-set (k-clumps in-set this-k)) (dec this-k))
-        )
-      )
+  (add-book-ends codons (loop [in-set codons
+                               out-set ()
+                               this-k (dec (count codons))]
+                          (do (println out-set this-k)
+                            (if (<= this-k 0) out-set
+
+                              (recur in-set (concat out-set (k-clumps in-set this-k)) (dec this-k))
+                              )
+                            )
+                          )
     )
   )
 
@@ -71,8 +73,6 @@
       )
     )
   )
-
-
 
 
 
