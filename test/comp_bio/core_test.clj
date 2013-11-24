@@ -3,7 +3,8 @@
             [comp-bio.core :refer :all ]
             [comp-bio.translation :refer :all ]
             [comp-bio.primitives :refer :all ]
-            [comp-bio.cyclopeptide :refer :all ]))
+            [comp-bio.cyclopeptide :refer :all ]
+            [comp-bio.spectrum :refer :all ]))
 
 
 

@@ -21,34 +21,34 @@
   )
 
 ; given a codon find all contiguous (consider wrapping) codons of length k
-(defn k-clumps [codon k]
+(defn k-clumps-cyclic [codon k]
   (let [
          f (take (dec k) codon)
          w (concat codon f)]
     (loop
       [in-set w
-       out-set ()
+       out-set #{}
        k k]
 
       (if (empty? in-set) out-set
         (if (< (count in-set) k) out-set
-          (recur (rest in-set) (concat out-set (list (take k in-set))) k))
+          (recur (rest in-set) (conj out-set (list (take k in-set))) k))
         )
       )
     )
   )
 
-; given a codon find all contiguous (consider wrapping) codons of length k
+; given a codon find all contiguous (no wrapping) codons of length k
 (defn k-clumps-linear [codon k]
 
   (loop
     [in-set codon
-     out-set ()
+     out-set #{}
      k k]
 
     (if (empty? in-set) out-set
       (if (< (count in-set) k) out-set
-        (recur (rest in-set) (concat out-set (list (take k in-set))) k))
+        (recur (rest in-set) (conj out-set (list (take k in-set))) k))
       )
     )
 
@@ -60,7 +60,22 @@
   )
 
 ; find all groups of contiguous codons in a codon
-(defn all-k-clumps [codons]
+(defn all-k-clumps-cyclic [codons]
+
+  (add-book-ends codons (loop [in-set codons
+                               out-set ()
+                               this-k (dec (count codons))]
+
+                          (if (<= this-k 0) out-set
+
+                            (recur in-set (concat out-set (k-clumps-cyclic in-set this-k)) (dec this-k))
+                            )
+                          )
+    )
+  )
+
+; find all groups of contiguous codons in a codon
+(defn all-k-clumps-linear [codons]
 
   (add-book-ends codons (loop [in-set codons
                                out-set ()
@@ -74,10 +89,9 @@
     )
   )
 
-
 ; find the spectrum of weights for a codon
 (defn spectrum [codons]
-  (let [in-set (all-k-clumps codons)]
+  (let [in-set (all-k-clumps-cyclic codons)]
     (sort
       (loop
         [in-set in-set
@@ -91,8 +105,7 @@
   )
 
 
-
-
+;(all-k-clumps-cyclic (list 1 1))
 
 
 

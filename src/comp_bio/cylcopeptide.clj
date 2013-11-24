@@ -37,7 +37,7 @@
 
 ; given one candidate is it spectrum consistant, all k-mers must match?
 (defn spectrum-consistant [candidate original]
-  (let [all (all-k-clumps candidate)]
+  (let [all (all-k-clumps-linear candidate)]
     (every? #(match? % original) all)
     )
   )
