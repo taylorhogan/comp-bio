@@ -32,7 +32,7 @@
 
       (if (empty? in-set) out-set
         (if (< (count in-set) k) out-set
-          (recur (rest in-set) (conj out-set (list (take k in-set))) k))
+          (recur (rest in-set) (conj out-set (take k in-set)) k))
         )
       )
     )
