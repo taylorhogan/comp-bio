@@ -14,7 +14,7 @@
 
 ; return the atomic weight of a set of codons
 (defn weight [codons]
-  (let [l (map (fn [c] (to-weight c)) codons)
+  (let [l (map (fn [c] (get (to-weight) c)) codons)
         s (reduce + l)]
     s
     )
@@ -48,7 +48,7 @@
 
     (if (empty? in-set) out-set
       (if (< (count in-set) k) out-set
-        (recur (rest in-set) (conj out-set (list (take k in-set))) k))
+        (recur (rest in-set) (conj out-set (take k in-set)) k))
       )
     )
 

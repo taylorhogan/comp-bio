@@ -11,6 +11,7 @@
     </content>
     <orderEntry type="jdk" jdkName="1.7" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Leiningen: org.clojure:clojure-contrib:1.2.0" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure:clojure:1.5.1" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure:math.combinatorics:0.0.3" level="project" />
   </component>

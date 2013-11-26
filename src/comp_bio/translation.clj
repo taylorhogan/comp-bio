@@ -15,7 +15,7 @@
 
 
 
-; peform translation from rna to protein
+; perform translation from rna to protein
 (defn transcribe [rna]
   (reverse
     (loop
@@ -23,7 +23,7 @@
        outset ()]
 
       (if (empty? inset) outset
-        (let [codon (to-protein (apply str (first inset)))]
+        (let [codon (get (to-protein) (apply str (first inset)))]
 
           (if (= codon "STOP") outset
             (recur (rest inset) (conj outset codon)))

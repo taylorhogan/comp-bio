@@ -3,7 +3,7 @@
             [comp-bio.core :refer :all ]
             [comp-bio.translation :refer :all ]
             [comp-bio.primitives :refer :all ]
-            [comp-bio.cyclopeptide :refer :all ]
+            [comp-bio.leaderboard :refer :all ]
             [comp-bio.spectrum :refer :all ]))
 
 
@@ -68,7 +68,15 @@
     (test-it "codon test" (= (spectrum input) (list 0 113 114 128 129 227 242 242 257 355 356 370 371 484)))
     )
   )
+(defn leaderboard-test []
+  (let [stest (list 0 71 113 129 147 200 218 260 313 331 347 389 460)
+        sn 2
+        answers (leader-board stest sn)]
 
+    (test-it "leaderboard test" (some #(= '(113 147 71 129) %) answers)
+      )
+    )
+  )
 
 
 (defn test-suite []
@@ -78,7 +86,8 @@
   (time (test-best-fuzzy))
   (time (translation-test))
   (time (peptide-test))
-  ; (time (codon-test))
+  (time (codon-test))
+  (time (leaderboard-test))
   )
 
 
