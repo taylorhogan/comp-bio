@@ -1,7 +1,7 @@
 # comp-bio
 
 An experiment in learning clojure
-
+[API] (https://github.com/taylorhogan/comp-bio/blob/master/doc/index.html)
 ## Installation
 
 Just Download.
