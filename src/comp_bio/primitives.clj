@@ -50,10 +50,10 @@
          this-k k
          accum {}]
 
-    (if-not (empty? mini-strand)
+    (if (< (count mini-strand) k) (sort-by second > accum)
       (let [k-key (apply str (take this-k mini-strand))]
         (recur (rest mini-strand) this-k (assoc accum k-key (inc (get accum k-key 0)))))
-      (sort-by second > accum)
+
       )
     )
   )

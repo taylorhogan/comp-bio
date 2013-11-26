@@ -57,7 +57,8 @@
 
 (def args (read-input-file "/Users/taylor/Documents/leinprojects/comp-bio/src/comp_bio/input.txt"))
 
-(motif-enumeration (args :dnas ) (args :k ) (args :d ))
+(def k-mers (motif-enumeration (args :dnas ) (args :k ) (args :d )))
+(println k-mers)
 
 
 

@@ -12,7 +12,9 @@
              [codox "0.6.6"]
              ]
 
-  :codox {:src-dir-uri "https://github.com/taylorhogan/comp-bio/blob/master/"}
+  :codox {:src-dir-uri "https://github.com/taylorhogan/comp-bio/blob/master/"
+          :src-linenum-anchor-prefix "L"}
+
 
 
   :main ^:skip-aot comp-bio.core
